@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    
+</head>
+<body>
+<div class="center">
+    <div class="form-container">
+        <p class="title">Admin Login</p>
+        <form class="form" action="#">
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="username" id="email" placeholder="">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="">
+                <div class="forgot">
+                    
+                </div>
+            </div>
+            <button class="sign" id="login">Log in</button>
+        </form>
+     
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> 
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>-->
+    <!--<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>-->
+
+    <script src="config.js"></script>
+    
+    <script src="mainfile.js"></script>
+    
+</body>
+</html>
