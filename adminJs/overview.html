@@ -22,6 +22,7 @@
 	<!-- iOS Safari -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="#0D1A1C">
 	<title>Homevest | Dashbaord Messages</title>
+	<link href="overview.css" rel="stylesheet" />
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" sizes="56x56" href="../images/fav-icon/icon.png">
 	<!-- Bootstrap CSS -->
@@ -32,6 +33,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/responsive.css" media="all">
 	<link rel="stylesheet" type="text/css" href="admin.css" media="all">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 	<!-- Fix Internet Explorer ______________________________________-->
 	<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -67,43 +69,43 @@
 				<nav class="dasboard-main-nav pt-30 pb-30 bottom-line">
 					<ul class="style-none">
 						<li class="plr"><a href="#" class="d-flex w-100 align-items-center active">
-							<img src="images/icon/icon_1.svg" alt="">
+							<i class="bi bi-eye" style="font-size: 20px;"></i>
 							<span>Overview</span>
 						</a></li>
 						<li class="plr"><a href="allusers.html" class="d-flex w-100 align-items-center">
-							<img src="images/icon/icon_1.svg" alt="">
+							<i class="bi bi-people" style="font-size: 20px;"></i>
 							<span>Users</span>
 						</a></li>
 						<li class="plr"><a href="userPortfolio.html" class="d-flex w-100 align-items-center">
-							<img src="images/icon/icon_2_active.svg" alt="">
+							<i class="bi bi-briefcase" style="font-size: 20px;"></i>
 							<span>Portfolios</span>
 						</a></li>
 						<li class="bottom-line pt-30 lg-pt-20 mb-40 lg-mb-30"></li>
 						<li><div class="nav-title">Transactions</div></li>
 						<li class="plr"><a href="deposits.html" class="d-flex w-100 align-items-center">
-							<img src="images/icon/icon_3.svg" alt="">
+							<i class="bi bi-coin" style="font-size: 20px;"></i>
 							<span>Deposits</span>
 						</a></li>
 						<li class="plr"><a href="investment.html" class="d-flex w-100 align-items-center">
-							<img src="images/icon/icon_5.svg" alt="">
+							<i class="bi bi-piggy-bank" style="font-size: 20px;"></i>
 							<span>Investments</span>
 						</a></li>
 
 						<li class="plr"><a href="withdrawal.html" class="d-flex w-100 align-items-center">
-							<img src="images/icon/icon_5.svg" alt="">
+							<i class="bi bi-bank" style="font-size: 20px;"></i>
 							<span>Withdrawal</span>
 						</a></li>
 						<li class="bottom-line pt-30 lg-pt-20 mb-40 lg-mb-30"></li>
-						<li><div class="nav-title">Actions</div></li>
+						<li><div class="nav-title">Subscriptions</div></li>
 						<li class="plr"><a href="adduser.html" class="d-flex w-100 align-items-center">
-							<img src="images/icon/icon_6.svg" alt="">
-							<span>Add User</span>
+							<i class="bi bi-grid" style="font-size: 20px;"></i>
+							<span>All</span>
 						</a></li>
 
 						<li class="bottom-line pt-30 lg-pt-20 mb-40 lg-mb-30"></li>
 						<li><div class="nav-title">Admin Messaging</div></li>
 						<li class="plr"><a href="message.html" class="d-flex w-100 align-items-center ">
-							<img src="images/icon/icon_6.svg" alt="">
+							<i class="bi bi-chat-left-text" style="font-size: 20px;"></i>
 							<span>Message</span>
 						</a></li>
 						
@@ -117,7 +119,7 @@
 
 				<div class="plr">
 					<a href="#" class="d-flex w-100 align-items-center logout-btn">
-						<div class="icon tran3s d-flex align-items-center justify-content-center rounded-circle"><img src="images/icon/icon_41.svg" alt=""></div>
+						<div class="icon tran3s d-flex align-items-center justify-content-center rounded-circle"><i class="bi bi-arrow-left" style="color: white;"></i></div>
 						<span id="logout-btn">Logout</span>
 					</a>
 				</div>
@@ -135,7 +137,7 @@
 				<!-- ************************ Header **************************** -->
 				<header class="dashboard-header">
 					<div class="d-flex align-items-center justify-content-end">
-						<h4 class="m0 d-none d-lg-block">Overview</h4>
+						<h4 class="m0 d-none d-lg-block"> Overview <i class="bi bi-eye" style="font-size: 40px;"></i></h4>
 						<button class="dash-mobile-nav-toggler d-block d-md-none me-auto">
 							<span></span>
 						</button>
@@ -194,8 +196,8 @@
                 </div>
 
 			
-				<div class="bg-white card-box border-20 p0 mt-30">
-                    <div class="message-wrapper">
+				<div class="border-20  mt-10">
+                    <div class="">
 						<div class="row gx-0">
 							<div class="col-lg-12">
 								<div class="message-sidebar pt-20">
@@ -205,9 +207,10 @@
 											<div class="row1">
 												<div class="one">
 													<div class="center">
-														<h1>Users</h1>
+														
 														<i class="bi bi-people"></i>
-														<h1 id="noUser"></h1>
+														<h1 id="userNo" style="color: #fff; "></h1>
+														<h1 style="color: #fff; font-size: 20px; font-weight: lighter;">Users</h1>
 													</div>
 													
 												</div>
@@ -222,18 +225,102 @@
 				
 											<div class="row2">
 												<div class="three">
-													<div class="center">
-														<h1>Users</h1>
-														<i class="bi bi-people"></i>
-														<h1 id="noUser"></h1>
-													</div>
+													<div class='title'>
+														
+													  </div>
+													  <svg class='container' width="529px" height="286px" viewBox="30 27 529 286" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+														  <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+														  <desc>Created with Sketch.</desc>
+														  <defs></defs>
+														  <g id="graph-copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(30.000000, 27.000000)">
+															  <g id="y_axis" font-size="11.0833333" font-family=".HelveticaNeueDeskInterface-Regular, .Helvetica Neue DeskInterface" fill="#FFFFFF" opacity="0.4" font-weight="normal">
+																  <text id="0">
+																	  <tspan x="25.3008249" y="264.333333">0</tspan>
+																  </text>
+																  <text id="200">
+																	  <tspan x="12.7757572" y="232.666667">200</tspan>
+																  </text>
+																  <text id="400">
+																	  <tspan x="12.7757572" y="201">400</tspan>
+																  </text>
+																  <text id="600">
+																	  <tspan x="12.7757572" y="169.333333">600</tspan>
+																  </text>
+																  <text id="800">
+																	  <tspan x="12.7757572" y="137.666667">800</tspan>
+																  </text>
+																  <text id="1000">
+																	  <tspan x="6.51322328" y="106">1000</tspan>
+																  </text>
+																  <text id="1200">
+																	  <tspan x="6.51322328" y="74.3333333">1200</tspan>
+																  </text>
+																  <text id="1400">
+																	  <tspan x="6.51322328" y="42.6666667">1400</tspan>
+																  </text>
+																  <text id="1600">
+																	  <tspan x="6.51322328" y="11">1600</tspan>
+																  </text>
+															  </g>
+															  <g id="GRAPHS" transform="translate(64.000000, 16.000000)" stroke-linecap="round" stroke-width="8" stroke-linejoin="round">
+																  <polyline id="Banks" stroke="#5BCAC1" points="0 1 88.0438662 1 128.985782 137 180.170616 137 224.189573 182 256.947867 91 301.990521 137 346.009479 91 392.087202 91 429.952607 179"></polyline>
+																  <polyline id="Bridge" stroke="#81DEFF" points="2.04739336 183 54.2559242 227 96.2274882 47 133.080569 1 302.018438 1 346.680361 44.6280822 386.957346 0 427.905213 43"></polyline>
+																  <polyline id="PayPal" stroke="#F6F5A6" points="2.04739336 180 53.273159 180 99.2985782 91 137.175355 47 219.077488 47 256.947867 90 301.990521 47 349.080569 137 398.228672 137 432 91"></polyline>
+															  </g>
+															  <g id="x_axis" transform="translate(71.974046, 271.541667)" font-size="11.0833333" font-family=".HelveticaNeueDeskInterface-Regular, .Helvetica Neue DeskInterface" fill="#FFFFFF" opacity="0.4" font-weight="normal">
+																  <text id="1">
+																	  <tspan x="0.396183206" y="11">1</tspan>
+																  </text>
+																  <text id="2">
+																	  <tspan x="39.2603361" y="11">2</tspan>
+																  </text>
+																  <text id="3">
+																	  <tspan x="78.8786567" y="11">3</tspan>
+																  </text>
+																  <text id="4">
+																	  <tspan x="118.496977" y="11">4</tspan>
+																  </text>
+																  <text id="5">
+																	  <tspan x="158.115298" y="11">5</tspan>
+																  </text>
+																  <text id="6">
+																	  <tspan x="197.733619" y="11">6</tspan>
+																  </text>
+																  <text id="7">
+																	  <tspan x="237.351939" y="11">7</tspan>
+																  </text>
+																  <text id="8">
+																	  <tspan x="276.97026" y="11">8</tspan>
+																  </text>
+																  <text id="9">
+																	  <tspan x="316.58858" y="11">9</tspan>
+																  </text>
+																  <text id="10">
+																	  <tspan x="359.229833" y="11">10</tspan>
+																  </text>
+																  <text id="11">
+																	  <tspan x="400.036703" y="11">11</tspan>
+																  </text>
+																  <text id="12">
+																	  <tspan x="438.466474" y="11">12</tspan>
+																  </text>
+															  </g>
+															  <g id="grid" transform="translate(46.618321, 4.750000)" stroke="#FFFFFF" stroke-linecap="square" opacity="0.0800000057">
+																  <path d="M0.396183206,1.1875 L478.991396,1.1875" id="Line"></path>
+																  <path d="M0.396183206,32.8541667 L478.991396,32.8541667" id="Line"></path>
+																  <path d="M0.396183206,64.5208333 L478.991396,64.5208333" id="Line"></path>
+																  <path d="M0.396183206,96.1875 L478.991396,96.1875" id="Line"></path>
+																  <path d="M0.396183206,127.854167 L478.991396,127.854167" id="Line"></path>
+																  <path d="M0.396183206,159.520833 L478.991396,159.520833" id="Line"></path>
+																  <path d="M0.396183206,191.1875 L478.991396,191.1875" id="Line"></path>
+																  <path d="M0.396183206,222.854167 L478.991396,222.854167" id="Line"></path>
+																  <path d="M0.396183206,254.520833 L478.991396,254.520833" id="Line"></path>
+															  </g>
+														  </g>
+													  </svg>
 												</div>
 												<div class="four">
-													<div class="center">
-														<h1>Users</h1>
-														<i class="bi bi-people"></i>
-														<h1 id="noUser"></h1>
-													</div>
+													<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 												</div>
 											</div>
 										</div>
@@ -280,6 +367,33 @@
 			<i class="bi bi-arrow-up-short"></i>
 		</button>
 
+		<script>
+			const xValues = ["Direct", "Commercial", "Equity", "Indirect"];
+			const yValues = [55, 49, 44, 24];
+			const barColors = [
+			  "#F8EDED",
+			  "#FF8225",
+			  "#B43F3F",
+			  "#173B45",
+			];
+			
+			new Chart("myChart", {
+			  type: "pie",
+			  data: {
+				labels: xValues,
+				datasets: [{
+				  backgroundColor: barColors,
+				  data: yValues
+				}]
+			  },
+			  options: {
+				title: {
+				  display: true,
+				  text: "Investments Statistics"
+				}
+			  }
+			});
+			</script>
 
 
 
@@ -305,7 +419,7 @@
 		<script src="../vendor/nice-select/jquery.nice-select.min.js"></script>
 		<!-- validator js -->
 		<script src="../vendor/validator.js"></script>
-
+		<script src="../logout.js"></script>
 		<!-- Theme js -->
 		<script src="../js/theme.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
@@ -315,7 +429,7 @@
 		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
 
 		<script src="config.js" ></script>
-        
+		<script src="totaluser.js" ></script>
 
 		<!--<script src="../js/logout.js" ></script>
 		<script src="../js/userprofile.js"></script>

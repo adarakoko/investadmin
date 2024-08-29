@@ -12,7 +12,7 @@ const loginBtn = document.getElementById('login').onclick = ((e) => {
             icon: "success",
             button: "Proceed to Dashboard"
         }).then(function () {
-            window.location.href = './adminJs/allusers.html';
+            window.location.href = './adminJs/overview.html';
         })
         
    } else {
@@ -26,4 +26,5 @@ const loginBtn = document.getElementById('login').onclick = ((e) => {
     })
    }
 }) 
-    
+
+
