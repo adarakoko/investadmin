@@ -74,10 +74,8 @@
     height:300px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px 5px rgb(180,180,180);
-    background: #AA076B;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #61045F, #AA076B);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #61045F, #AA076B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background-image: url('bgadmin.jpeg');
+    background-size: cover;
 }
 
 .two{
@@ -88,9 +86,8 @@
     height:300px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px 5px rgb(180,180,180);
-    background: #AA076B;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #61045F, #AA076B);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #61045F, #AA076B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url('bgadmin.jpeg');
+    background-size: cover;
 
 }
 
@@ -154,9 +151,8 @@
         align-items: center;
         width:48%;
         height:200px;
-        background: #AA076B;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #61045F, #AA076B);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #61045F, #AA076B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-image: url('bgadmin.jpeg');
+        background-size: cover;
 
 
     }
@@ -167,7 +163,8 @@
         align-items: center;
         width:48%;
         height:200px;
-        background-color: transparent;
+        background-image: url('bgadmin.jpeg');
+        background-size: cover;
     }
     
     .row2{
