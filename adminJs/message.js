@@ -8,21 +8,14 @@ db.collection("Nusers").where('userId', '!=', '')
           console.log(doc.data());
           Users.push(doc.data());
           console.log("All Users1: ", Users)
+          var counter = 1;
           var allUsersResult = Users.map((allUser) => {
             console.log(typeof(Users))
-              return `<div>
-              <table class="table">
-                <thead  class="tableHead">
-                    <tr style="background-color:#000 !important; color:#fff !important; font-size: 15px;">
-                      
-                      <th scope="col">Username</th>
-                      <th scope="col">Details</th>
-                    
-                    </tr>
-                </thead>
-
-                <tbody>
+              return `
+              
                   <tr style="font-size: 13px;">
+                  <td>${counter++}</td>
+                  <td><img src="${allUser.imageUrl}" width="70px" height="70px" /></th>
                     <td>${allUser.username}</td>
                     <td>${allUser.messages.map((depo => { 
                       return `<div class="chekas">
@@ -67,11 +60,7 @@ db.collection("Nusers").where('userId', '!=', '')
                    
                   
                   </tr>
-                </tbody>
-
-              </table>
-
-              </div>
+               
               `
           }).join(' ')
           

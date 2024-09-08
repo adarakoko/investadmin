@@ -6,31 +6,18 @@ db.collection("Nusers").where('userId', '!=', '')
         querySnapshot.forEach((doc) => {
           Users.push(doc.data());
           console.log("All Users: ", Users.join(" "))
+          var counter = 1;
           var allUsersResult = Users.map((allUser) => {
-            return `<div>
-            <table class="table">
-              <thead  class="tableHead">
-                  <tr style="background-color:#000 !important; color:#fff !important; font-size: 15px;">
-                    <th scope="col">User Id</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Date</th>
-                  </tr>
-              </thead>
-
-              <tbody>
+            return `
                   <tr style="font-size: 13px;">
+                    <td>${counter++}</td>
                     <td id="userIdDelete">${allUser.userId}</th>
+                    <td><img src="${allUser.imageUrl}" width="70px" height="70px"/></td>
                     <td>${allUser.username}</td>
                     <td>${allUser.email}</td>
                     <td>${allUser.created_at}</td>
                     <td><button class="delBtn" onclick="deleteUser()"> Delete</button></td>
                   </tr>
-              </tbody>
-
-            </table>
-
-          </div>
           `
           }).join(' ')
           

@@ -8,34 +8,20 @@ db.collection("Nusers").where('userId', '!=', '')
         querySnapshot.forEach((doc) => {
           Users.push(doc.data());
           console.log("All Users: ", Users.join(" "))
+          var counter = 1;
           var allUsersResult = Users.map((allUser) => {
-            return `<div>
-            <table class="table">
-              <thead  class="tableHead">
-                  <tr style="background-color:#000 !important; color:#fff !important; font-size: 15px;">
-                  <th scope="col">Name</th>
-                  <th scope="col">userId</th>
-                  <th scope="col">Balance</th>
-                  <th scope="col">Earnings</th>
-                  <th scope="col">Roi</th>
-                 
-                  </tr>
-              </thead>
-
-              <tbody>
-                  <tr style="font-size: 13px;">
-                  <td>${allUser.username}</th>
-                  <td>${allUser.userId}</td>
-                  <td>${allUser.wallet}</td>
-                  <td>${allUser.bonus}</td>
-                  <td>${allUser.wallet + allUser.bonus}</td>
-                
-                  </tr>
-              </tbody>
-
-            </table>
-
-          </div>
+            return `
+            
+              <tr style="font-size: 13px;">
+              <td>${counter++}</td>
+              <td>${allUser.username}</th>
+              <td><img src="${allUser.imageUrl}" width="70px" height="70px" /></th>
+              <td>${allUser.userId}</td>
+              <td>${allUser.wallet}</td>
+              <td>${allUser.bonus}</td>
+              <td>${allUser.wallet + allUser.bonus}</td>
+            
+              </tr>
           `
           }).join(' ')
           
