@@ -224,3 +224,16 @@
         font-size: 40px;
     }
 }
+
+.btc{
+    display: flex;
+    column-gap: 10px;
+}
+
+@media only screen and (max-width: 1000px){
+    .btc{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+}

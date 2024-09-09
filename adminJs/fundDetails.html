@@ -58,7 +58,7 @@
 		<aside class="dash-aside-navbar">
 			<div class="position-relative">
 				<div class="logo d-md-block d-flex align-items-center justify-content-between plr bottom-line pb-30">
-					<a href="dashboard-index.html">
+					<a href="admindash.html">
 						<img src="../images/logo/logo_01.svg" alt="">
 					</a>
 					<button class="close-btn d-block d-md-none"><i class="fa-light fa-circle-xmark"></i></button>
@@ -79,7 +79,7 @@
 						</a></li>
 						<li class="bottom-line pt-30 lg-pt-20 mb-40 lg-mb-30"></li>
 						<li><div class="nav-title">Transactions</div></li>
-						<li class="plr"><a href="deposits.html" class="d-flex w-100 align-items-center">
+						<li class="plr"><a href="#" class="d-flex w-100 align-items-center">
 							<i class="bi bi-coin" style="font-size: 20px;"></i>
 							<span>Deposits</span>
 						</a></li>
@@ -94,14 +94,14 @@
 						</a></li>
 						<li class="bottom-line pt-30 lg-pt-20 mb-40 lg-mb-30"></li>
 						<li><div class="nav-title">Bank</div></li>
-						<li class="plr"><a href="fundDetails.html" class="d-flex w-100 align-items-center">
+						<li class="plr"><a href="#" class="d-flex w-100 align-items-center active">
 							<i class="bi bi-grid" style="font-size: 20px;"></i>
 							<span>Update Details</span>
 						</a></li>
 
 						<li class="bottom-line pt-30 lg-pt-20 mb-40 lg-mb-30"></li>
 						<li><div class="nav-title">Admin Messaging</div></li>
-						<li class="plr"><a href="#" class="d-flex w-100 align-items-center active">
+						<li class="plr"><a href="message.html" class="d-flex w-100 align-items-center ">
 							<i class="bi bi-chat-left-text" style="font-size: 20px;"></i>
 							<span>Message</span>
 						</a></li>
@@ -134,7 +134,7 @@
 				<!-- ************************ Header **************************** -->
 				<header class="dashboard-header">
 					<div class="d-flex align-items-center justify-content-end">
-						<h4 class="m0 d-none d-lg-block">Messages</h4>
+						<h4 class="m0 d-none d-lg-block">Change bank details</h4>
 						<button class="dash-mobile-nav-toggler d-block d-md-none me-auto">
 							<span></span>
 						</button>
@@ -187,76 +187,136 @@
 				<div class="row gx-0 align-items-center">
 					<div class="offcanvas compose-mail-offcanvas" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
 						<div class="compose-new-email-container">
-							<div class="new-email-header position-relative">
+							<form>
+								<div class="new-email-header position-relative">
 								
-								<div class="input-group d-flex align-items-center">
-									<div class="text-center" style="width: 60px;"><b>USERID</b></div>
-									<input type="text" class="flex-fill" placeholder="User Id" id="userId">
-									<div class="text-center" style="width: 60px;"><b>Title</b></div>
-									<input type="text" class="flex-fill" placeholder="Tittle of message" id="messageTitle">
-								</div>
-								
-							</div>
-							<!-- /.new-email-header -->
-							<div class="compose-body">
-								<textarea id="messageBody"></textarea>
-							</div>
-							<!-- /.compose-body -->
-
-							<div class="compose-email-footer d-flex justify-content-between">
-								<div class="d-flex align-items-center">
-									<div class="insert-file position-relative me-3">
-										<img src="../images/lazy.svg" data-src="images/icon/icon_32.svg" alt="" class="lazy-img">
-										<input type="file" name="uploadImg" placeholder="" title="Insert File">
+									<div class="input-group d-flex align-items-center">
+										<div class="text-center" style="width: 60px;"><b>ID</b></div>
+										<input type="text" class="flex-fill" placeholder="Copy Id of User" id="paymentId">
+										
 									</div>
-									<button class="insert-emoji me-3"><img src="../images/lazy.svg" data-src="images/icon/icon_33.svg" alt="" class="lazy-img"></button>
-									<div class="insert-file position-relative me-3">
-										<img src="../images/lazy.svg" data-src="images/icon/icon_34.svg" alt="" class="lazy-img">
-										<input type="file" name="uploadImg" placeholder="" title="Insert Image">
+									
+								</div>
+								<!-- /.new-email-header -->
+								<div class="compose-body specs">
+									<input type="text" class="flex-fill"  placeholder="UserId" id="userId"><br>
+									<input type="text" class="flex-fill"  placeholder="Balance" id="balance"><br>
+									<input type="text" class="flex-fill"  placeholder="Payment Status" id="paymentStatus"><br>
+									<input type="text" class="flex-fill" placeholder="Amount deposited" id="amount"><br>
+									<select class="col-xl-12" id="paymentSelect" >
+										<option id="" value="">Select a payment type</option>
+										<option id="btc" value="BITCOIN">BITCOIN</option>
+										<option id="usdt" value="USDTTRC20" >USDT TRC20</option>
+									</select>
+								</div>
+								<!-- /.compose-body -->
+	
+								<div class="compose-email-footer d-flex justify-content-between">
+									
+									<div class="d-flex align-items-center">
+									
+										<a href="#" class="reply-btn tran3s" onclick="updateDeposits()">Confirm Payment</a>
 									</div>
 								</div>
-
-								<div class="d-flex align-items-center">
-									<a href="#" class="delete-mail me-3"><img src="../images/lazy.svg" data-src="images/icon/icon_35.svg" alt="" class="lazy-img" onclick="resetMessageBody()"></a>
-									<a href="#" class="reply-btn tran3s" onclick="sendMessage()">Send</a>
-								</div>
-							</div>
+							</form>
+							
 							<!-- /.compose-email-footer -->
 						</div>
 						<!-- /.compose-new-email-container -->
 						<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
+
+
+
+					<div class="row gx-0 align-items-center">
+						<div class="offcanvas compose-mail-offcanvas" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling2" aria-labelledby="offcanvasScrollingLabel">
+							<div class="compose-new-email-container">
+								<form>
+									<div class="new-email-header position-relative">
+									
+										<div class="input-group d-flex align-items-center">
+											<div class="text-center" style="width: 60px;"><b>ID</b></div>
+											<input type="text" class="flex-fill" placeholder="Copy Id of User" id="paymentId">
+											
+										</div>
+										
+									</div>
+									<!-- /.new-email-header -->
+									<div class="compose-body specs">
+										<input type="text" class="flex-fill"  placeholder="UserId" id="userId"><br>
+										<input type="text" class="flex-fill"  placeholder="Balance" id="balance"><br>
+										<input type="text" class="flex-fill"  placeholder="Payment Status" id="paymentStatus"><br>
+										<input type="text" class="flex-fill" placeholder="Amount deposited" id="amount"><br>
+										<select class="col-xl-12" id="paymentSelect" >
+											<option id="" value="" >Select a payment type</option>
+											<option id="btc" value="BITCOIN">BITCOIN</option>
+											<option id="usdt" value="USDTTRC20" >USDT TRC20</option>
+										</select>
+									</div>
+									<!-- /.compose-body -->
+		
+									<div class="compose-email-footer d-flex justify-content-between">
+										
+										<div class="d-flex align-items-center">
+										
+											<a href="#" class="reply-btn tran3s" onclick="rejectDeposits()">Reject Payment</a>
+										</div>
+									</div>
+								</form>
+								
+								<!-- /.compose-email-footer -->
+							</div>
+							<!-- /.compose-new-email-container -->
+							<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+
+
                     <div class="col-lg-4">
                         <div class="d-flex align-items-center justify-content-between">
-							<h2 class="main-title d-block d-lg-none m0">Messages</h2>
-                            
+							<h2 class="main-title d-block d-lg-none m0">Change Bank Details</h2>
+                           
                         </div>
                     </div>
                     
                 </div>
+
 				<div class="bg-white card-box border-20 p0 mt-30">
                     <div class="message-wrapper">
 						<div class="row gx-0">
 							<div class="col-lg-12">
 								<div class="message-sidebar pt-20">
 									
-									<div class="email-read-panel" >
-										<table class="table">
-											<thead  class="tableHead">
-												<tr style="background-color:#000 !important; color:#fff !important; font-size: 15px;">
-													<th scope="col">S/N</th>
-													<th scope="col">Photo</th>
-												  <th scope="col">Username</th>
-												  <th scope="col">Details</th>
-												
-												</tr>
-											</thead>
-							
-											<tbody id="allUsers">
+									<div class="email-read-panel" id="changeBank">
+                                        <label style="font-weight: bold;">BITCOIN ADDRESS</label><br>
+                                        <div class="btc">
+                                            
+                                            <input type="text" placeholder="BTC Address" id="btc-address"/>
+                                            <input type="file" id="btc-photo"/>
+                                           
+                                        </div>
+                                        <button onclick="changeBtcAddress()" style="background-color: #000; color: #fff; padding: 5px 10px;">Change</button>
+                                        <br>
 
-											</tbody>
+                                        <label style="font-weight: bold;">USDTTRC20 ADDRESS</label><br>
+                                        <div class="btc"></div>
+                                            
+                                            <input type="text" placeholder="USDTTRC20 Address" id="usdt-address"/>
+                                            <input type="file" id="usdt-photo"/>
+                                            <button onclick="changeUsdtAddress()" style="background-color: #000; color: #fff; padding: 5px 10px;">Change</button>
+                                        </div>
+                                        <br>
 
-										</table>
+                                        <label style="font-weight: bold;">BANK TRANSFER</label><br>
+                                        <div class="btc"></div>
+                                            
+                                            <input type="text" placeholder="BANK NAME" id="bank-name"/>
+                                            <input type="text" placeholder="ACCOUNT NAME" id="account-name"/>
+                                            <input type="text" placeholder="ACCOUNT NUMBER" id="bank-account"/>
+                                            <input type="text" placeholder="ROUTING NUMBER" id="routing-number"/>
+                                            <input type="text" placeholder="ADDRESS" id="bank-address"/>
+                                            <button onclick="changeBankDetails()" style="background-color: #000; color: #fff; padding: 5px 10px;">Change</button>
+                                        </div>
+										
 									</div>	
 									<!-- /.email-read-panel -->
 									
@@ -333,10 +393,13 @@
 		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
 
 		<script src="config.js" ></script>
-        <script src="message.js"></script>
-		<script src="sendMessage.js"></script>
+        <script src="changeBtcDetails.js"></script>
+        <script src="changeUsdtDetails.js"></script>
+        <script src="changeBankDetails.js"></script>
 
 		<!--<script src="../js/logout.js" ></script>
 		<script src="../js/userprofile.js"></script>
