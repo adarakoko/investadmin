@@ -134,7 +134,7 @@
 				<!-- ************************ Header **************************** -->
 				<header class="dashboard-header">
 					<div class="d-flex align-items-center justify-content-end">
-						<h4 class="m0 d-none d-lg-block">Change bank details</h4>
+						<h4 class="m0 d-none d-lg-block">Update Payment details</h4>
 						<button class="dash-mobile-nav-toggler d-block d-md-none me-auto">
 							<span></span>
 						</button>
@@ -273,7 +273,7 @@
 
                     <div class="col-lg-4">
                         <div class="d-flex align-items-center justify-content-between">
-							<h2 class="main-title d-block d-lg-none m0">Change Bank Details</h2>
+							<h2 class="main-title d-block d-lg-none m0">Update Payment Details</h2>
                            
                         </div>
                     </div>
@@ -287,13 +287,16 @@
 								<div class="message-sidebar pt-20">
 									
 									<div class="email-read-panel" id="changeBank">
-                                        <label style="font-weight: bold;">BITCOIN ADDRESS</label><br>
+                                        <label style="font-weight: bold;">BITCOIN ADDRESS</label>
+										<br>
+										
                                         <div class="btc">
                                             
-                                            <input type="text" placeholder="BTC Address" id="btc-address"/>
+                                            <input type="text" placeholder="BTC Address" id="btc-address" class="btc-phone"/>
                                             <input type="file" id="btc-photo"/>
                                            
                                         </div>
+										
                                         <button onclick="changeBtcAddress()" style="background-color: #000; color: #fff; padding: 5px 10px;">Change</button>
                                         <br>
 
