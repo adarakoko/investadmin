@@ -17,7 +17,8 @@ db.collection("Nusers").where('userId', '!=', '')
                    <td><img src="${allUser.imageUrl}" width="70px" height="70px" /></th>
                     <td>${allUser.username}</td>
                     <td>$${allUser.wallet}</td>
-                    <td>${allUser.withdrawals.map((depo => { 
+                  
+                    <td>${allUser.withdrawals && allUser.withdrawals.map((depo => { 
                       return `<div class="chekas">
                       <div>
                         <div style="font-weight: bold;">ID</div>
