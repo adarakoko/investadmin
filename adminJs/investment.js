@@ -1,24 +1,25 @@
 
 
-db.collection("Nusers").where('userId', '!=', '')
+db.collection("Nusers").where('userId', '!=', ' ')
     .onSnapshot((querySnapshot) => {
-        var Users = [];
+        var Users2 = [];
        
         querySnapshot.forEach((doc) => {
           console.log(doc.data());
-          Users.push(doc.data());
-          console.log("All Users1: ", Users)
-          var counter = 1;
-          var allUsersResult = Users.map((allUser) => {
-            console.log(typeof(Users))
+          Users2.push(doc.data());
+          console.log("All Users2: ", Users2)
+          var counter1 = 1;
+          var allUsersResult = Users2.map((allUser) => {
+            console.log(typeof(Users2))
               return `
             
                   <tr style="font-size: 13px;">
-                  <td>${counter++}</td>
+                  <td>${counter1++}</td>
                   <td><img src="${allUser.imageUrl}" width="70px" height="70px" /></th>
                     <td>${allUser.username}</td>
                     <td>$${allUser.wallet}</td>
                     <td>$${allUser.bonus}</td>
+                    
                     <td>${allUser.investments.map((depo => { 
                       return `<div class="chekas">
                       <div>

@@ -1,85 +1,83 @@
 
 
-db.collection("Nusers").where('userId', '!=', '')
-    .onSnapshot((querySnapshot) => {
-        var Users = [];
-       
-        querySnapshot.forEach((doc) => {
-          console.log(doc.data());
-          Users.push(doc.data());
-          console.log("All Users1: ", Users)
-          var counter = 1;
-          var allUsersResult = Users.map((allUser) => {
-            console.log(typeof(Users))
-              return `
-             
-
-                  <tr style="font-size: 13px;">
-                  <td>${counter}</td>
-                    <td><img src="${allUser.imageUrl}" width="70px" height="70px" /></th>
-                    <td>${allUser.username}</td>
-                    <td>$${allUser.wallet}</td>
-                    <td>${allUser.deposits.map((depo => { 
-                      return `<div class="chekas">
-                        <div>${depo.id}</div>
-                        <br>
-                        <div>${depo.userId}</div>
-                        <br>
-                       <div>$${depo.amount}</div>
-                       <br>
-                       <div>${depo.paymentType}</div>
-                       <br>
-                       <div>${depo.payment_date}</div>
-                       <br>
-                       <div>${depo.paymentStatus}</div>
-                       <br>
-                       <div>
-                          <div style="display:flex;">
-                            <button class="editBtn" onclick="deleteUser()"><a class="" data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling">Approve</a></button>
-                            <button class="delBtn" onclick="deleteUser()"><a class="" data-bs-toggle="offcanvas" href="#offcanvasScrolling2" role="button" aria-controls="offcanvasScrolling">Reject</a></button>
-                          </div>
-                        </div>
-                      </div>
-                      <br>
-                      `
-
-                    })).join(' ')}</td>
-
-                   
-
-                   
+db.collection("Nusers").where('userId', '!=', ' ')
+.onSnapshot((querySnapshot) => {
+    var Users1 = [];
+    querySnapshot.forEach((doc) => {
+      if(doc.data().deposits){
+        //console.log(doc.data().deposits);
+        Users1.push(doc.data());
+        console.log(Users1)
+        let counter  = 1;
+        let allDeposits =  Users1.map((fund) => {
+          return `<tr>
+            <td>${counter++}</td>
+            <td><img src="${fund.imageUrl}" width="70px" height="70px" /></td>
+            <td>${fund.username}</td>
+            <td>$${fund.wallet}</td>
+            <td>${fund.deposits.map((depi => { 
+                return `<div class="chekas">
+                <div>
+                  <div style="font-weight: bold;">ID</div>
+                  <div>${depi.id}</div>
+                </div>
+                  <br>
+                  <div>
+                    <div style="font-weight: bold;">USERID</div>
+                    <div>${depi.userId}</div>
+                  </div>
                   
-                  </tr>
-              
-              `
-          }).join(' ')
+                  <br>
+                  <div>
+                    <div style="font-weight: bold;">AMOUNT</div>
+                    <div>$${depi.amount}</div>
+                  </div>
+                  
+                  <br>
+                  <div>
+                    <div style="font-weight: bold;">INVESTTYPE</div>
+                    <div>${depi.paymentType}</div>
+                  </div>
+                  
+                  <br>
+                  <div>
+                    <div style="font-weight: bold;">PROFIT</div>
+                    <div>${depi.payment_date}</div>
+                  </div>
+                  
+                  <br>
+                  <div>
+                    <div style="font-weight: bold;">INVESTRETURN</div>
+                    <div>${depi.paymentStatus}</div>
+                  </div>
+                  
+                  <br>
+
+                  <div style="display: flex;">
+                    <button class="editBtn" onclick="updateDeposits()"><a class="" data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling">Approve</a></button>
+                    <button class="delBtn" onclick="rejectDeposits()"><a class="" data-bs-toggle="offcanvas" href="#offcanvasScrolling2" role="button" aria-controls="offcanvasScrolling">Reject</a></button>
+                  </div>
+                    
           
-            //cities.push(doc.data().name);
-            document.getElementById('allUsers').innerHTML = allUsersResult;
-        });
-});
 
+                  
+                    
+                  
+                </div>
+                <br>
+                `
 
+              })).join(' ')}</td>
+          </tr>
+          `
 
+          
+        })
 
-
-/*<tbody>
-  <tr style="font-size: 13px;">
-    <td id="userIdDelete">${allUser.userId}</th>
-    <td>${allUser.username}</td>
-    <td>${allUser.deposits.find(function(element) {
-      return element.hasOwnProperty("amount");
-  }).amount}</td>
-
-    <td>${allUser.deposits.find(function(element) {
-      return element.hasOwnProperty("payment_date");
-  }).payment_date}</td>
-
-    <td>${allUser.deposits.find(function(element) {
-      return element.hasOwnProperty("paymentStatus");
-  }).paymentStatus}</td>
-
-    <td style="display:flex;"><button class="editBtn" onclick="deleteUser()"><a class="" data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling">Approve</a></button><button class="delBtn" onclick="deleteUser()"><a class="" data-bs-toggle="offcanvas" href="#offcanvasScrolling" role="button" aria-controls="offcanvasScrolling">Reject</a></button></td>
-    <td></td>
-  </tr>
-</tbody>*/
+        document.getElementById('allUsers').innerHTML = allDeposits;
+      }else{
+        console.log('no such document')
+      }
+    
+    })
+});    
