@@ -22,7 +22,7 @@ db.collection("Nusers").where('userId', '!=', ' ')
                     
                     <td>${allUser.investments.map((depo => { 
                       return `<div class="chekas">
-                      <div>
+                      <div>98po
                         <div style="font-weight: bold;">ID</div>
                         <div>${depo.id}</div>
                       </div>
